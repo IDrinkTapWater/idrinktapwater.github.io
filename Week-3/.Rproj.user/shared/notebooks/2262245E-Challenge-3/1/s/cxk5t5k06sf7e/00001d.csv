@@ -1,0 +1,8 @@
+"0","words <- c(""apple"", ""banana"", ""cherry"", ""apple"")"
+"0","test=which(words ==""apple"")"
+"0","print(test)"
+"1","[1]"
+"1"," 1"
+"1"," 4"
+"1","
+"
