@@ -1,3 +1,0 @@
-"0","# Enter code here"
-"0","hotels %>%"
-"0","  summarise(mean_adr = mean(adr))"

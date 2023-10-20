@@ -1,2 +1,0 @@
-"0","ggplot(loans, aes(x = homeownership, y = loan_amount)) +"
-"0","  geom_violin()"

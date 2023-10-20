@@ -1,4 +1,0 @@
-"0","# Enter code here"
-"0","comm_data%>%"
-"0","  group_by(date)%>%"
-"0","  summarise(mean_sentiment=mean(sentiment))"

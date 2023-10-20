@@ -1,7 +1,0 @@
-"0","numbers<-c(7,12.5,""15.7"")"
-"0","numbers<- as.numeric(numbers)"
-"0","print(sum(numbers))"
-"1","[1]"
-"1"," 35.2"
-"1","
-"

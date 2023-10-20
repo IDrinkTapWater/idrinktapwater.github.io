@@ -1,8 +1,0 @@
-"0","# complete the code to generate the plot"
-"0",""
-"0","ggplot(data=PD,mapping=aes(x=Age,y=Rating)) + "
-"0","  geom_point(shape=4) + "
-"0","  labs(x=""Age (years)"",y=""Rating (Points)"", "
-"0","                                                                          title=""Dj ratings across different ages"","
-"0","                                                                          caption=""Looks like ratings are generally quite independent of the DJ's age but if you really want to reach, you could say in general older DJ's receive higher ratings, which would make sense if you assume they have more experience"")"
-"0",""

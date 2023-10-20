@@ -1,4 +1,0 @@
-"0","ggplot(loans, aes(x = loan_amount)) +"
-"0","  geom_density(adjust = 2) +"
-"0","  labs(x = ""Loan amount ($)"", y = ""Density"", title = ""Amounts of Lending Club loans"")"
-"0",""

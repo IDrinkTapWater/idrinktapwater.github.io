@@ -1,6 +1,0 @@
-"0","# Enter code here"
-"0","comm_data%>%"
-"0","  group_by(sender) %>%"
-"0","  summarise(mean_sentiment=mean(sentiment))%>%"
-"0","  filter(mean_sentiment>0)%>%"
-"0","  arrange(desc(mean_sentiment))"

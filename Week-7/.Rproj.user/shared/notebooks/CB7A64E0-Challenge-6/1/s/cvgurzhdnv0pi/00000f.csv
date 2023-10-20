@@ -1,3 +1,0 @@
-"0","ggplot(loans, aes(y = homeownership, fill = grade)) + geom_bar(position = ""fill"") +"
-"0","  labs(x = ""Proportion"", y = ""Homeownership"", fill = ""Grade"", title = ""Grades of Lending CLub loans"")"
-"0",""

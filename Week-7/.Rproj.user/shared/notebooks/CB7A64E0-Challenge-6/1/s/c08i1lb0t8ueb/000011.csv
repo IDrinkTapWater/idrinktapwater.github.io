@@ -1,4 +1,0 @@
-"0","ggplot(loans) + aes(x = loan_amount) +"
-"0","  geom_histogram()"
-"1","[38;5;232m`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[39m
-"
