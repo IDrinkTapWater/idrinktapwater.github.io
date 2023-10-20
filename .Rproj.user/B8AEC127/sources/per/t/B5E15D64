@@ -1,6 +1,6 @@
 {
     "id": "B5E15D64",
-    "path": "~/GitHub/idrinktapwater.github.io/about.qmd",
+    "path": "~/IDrinkTapWater.github.io/about.qmd",
     "project_path": "about.qmd",
     "type": "quarto_markdown",
     "hash": "3447262617",
@@ -16,7 +16,7 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2:0",
+        "rmdVisualModeLocation": "222:0",
         "cursorPosition": "10,42",
         "scrollLine": "0"
     },
