@@ -11,3 +11,7 @@ Here's Daniel's favourite equation.
 ```{r}
 1 + 1
 ```
+
+GitHub Page link:
+
+https://github.com/IDrinkTapWater/idrinktapwater.github.io
