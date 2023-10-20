@@ -1,0 +1,8 @@
+"0","# Slide 23"
+"0","sample_sizes <- c(5, 10, 15, 20, 25000)"
+"0","fsd <- function(sample_sizes){"
+"0","  sample_sds <- rep(0, length(sample_sizes))"
+"0","  for(i in seq_along(sample_sizes)) {"
+"0","    sample_sds[i] <- sd(rnorm(sample_sizes[i]))"
+"0","  }"
+"0","}"

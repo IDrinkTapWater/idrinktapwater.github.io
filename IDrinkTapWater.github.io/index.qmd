@@ -1,0 +1,13 @@
+---
+title: "NM2207 Final"
+---
+
+This is a Daniel website.
+
+To learn more about Daniel, navigate to the "About" section through the hamburger menu in the top left of the page.
+
+Here's Daniel's favourite equation.
+
+```{r}
+1 + 1
+```

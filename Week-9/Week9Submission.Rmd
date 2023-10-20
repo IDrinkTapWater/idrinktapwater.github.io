@@ -1,0 +1,12 @@
+---
+title: "Week 9 Submission"
+author: "Daniel Tan"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+#### The topic I have finalised pertains to the National Basketball Association (NBA)(of America)
+
+
+## https://www.kaggle.com/datasets/justinas/nba-players-data
+## https://www.kaggle.com/datasets/yakhyojon/national-basketball-association-nba

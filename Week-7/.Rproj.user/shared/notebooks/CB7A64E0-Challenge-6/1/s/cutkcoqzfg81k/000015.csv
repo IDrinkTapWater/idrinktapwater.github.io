@@ -1,0 +1,5 @@
+"0","ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + geom_point() +"
+"0","  facet_grid(species ~ sex)"
+"2","Warning:"
+"2"," [38;5;232mRemoved 2 rows containing missing values (`geom_point()`).[39m
+"

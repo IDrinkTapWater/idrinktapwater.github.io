@@ -1,0 +1,31 @@
+"0","install.packages(""ggridges"")"
+"2","WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/ggridges_0.5.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 2238929 bytes (2.1 MB)
+"
+"2","downloaded 2.1 MB
+
+"
+"1","package ‘ggridges’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\brend\AppData\Local\Temp\RtmpojFHU4\downloaded_packages"
+"1",""
+"1","
+"
+"0","library(ggridges)"
+"2","Warning:"
+"2"," package ‘ggridges’ was built under R version 4.2.3
+"
+"0","ggplot(loans, aes(x = loan_amount, y = grade, fill = grade, color = grade)) +"
+"0","  geom_density_ridges(alpha = 0.5)"
+"2","Picking joint bandwidth of 2360
+"

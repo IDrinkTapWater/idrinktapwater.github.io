@@ -1,0 +1,20 @@
+---
+title: "Code-Along and Challenge 8"
+author: "Daniel Tan"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, out.height= "100%",out.width= "100%",echo=FALSE,eval=TRUE,fig.cap="App1"}
+knitr::include_graphics("Screenshot (4).png") 
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```

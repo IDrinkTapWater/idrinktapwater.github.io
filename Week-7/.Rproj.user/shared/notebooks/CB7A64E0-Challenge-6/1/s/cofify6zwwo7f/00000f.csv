@@ -1,0 +1,4 @@
+"0","ggplot(loans, aes(x = homeownership,"
+"0","                  fill = grade)) +"
+"0","  geom_bar()"
+"0",""

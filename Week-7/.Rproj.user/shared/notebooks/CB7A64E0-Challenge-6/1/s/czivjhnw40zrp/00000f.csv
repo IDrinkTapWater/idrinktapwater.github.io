@@ -1,0 +1,5 @@
+"0","ggplot(loans, aes(x = debt_to_income, y = interest_rate)) +"
+"0","  geom_point()"
+"2","Warning:"
+"2"," [38;5;232mRemoved 24 rows containing missing values (`geom_point()`).[39m
+"

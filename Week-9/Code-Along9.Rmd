@@ -1,0 +1,153 @@
+---
+title: "Code-Along and Challenge 9"
+author: "Daniel Tan"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, eval=TRUE,echo=TRUE}
+library(tidyverse)
+
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+tidydata <- tribble(
+~country, ~year, ~cases, ~population,
+"Afghanistan", 1999, 745, 19987071,
+"Afghanistan", 2000, 2666, 20595360,
+"Brazil", 1999, 37737, 172006362,
+"Brazil", 2000, 80488, 174504898,
+"China", 1999, 212258, 1272915272,
+"China", 2000, 213766, 1280428583)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+nontidydata <- tribble(
+~country,~year,~rate,
+"Afghanistan", 1999, "745/19987071",
+"Afghanistan", 2000, "2666/20595360",
+"Brazil", 1999, "37737/172006362",
+"Brazil", 2000, "80488/174504898",
+"China", 1999, "212258/1272915272",
+"China", 2000, "213766/1280428583")
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+tidieddata <- nontidydata %>%
+separate(rate, into = c("cases",
+"population"),
+sep = "/")
+tidieddata
+```
+
+```{r, eval=TRUE,echo=TRUE}
+nontidydata
+```
+
+```{r, eval=TRUE,echo=TRUE}
+newtidieddata <- tidieddata %>%
+pivot_longer(
+cols = cases:population,
+names_to = "measurement",
+values_to = "value"
+)
+newtidieddata
+```
+
+```{r, eval=TRUE,echo=TRUE}
+df <- tribble(
+~id, ~bp1, ~bp2,
+"A", 100, 120,
+"B", 140, 115,
+"C", 120, 125
+)
+df
+```
+
+```{r, eval=TRUE,echo=TRUE}
+df %>%
+pivot_longer(
+cols = bp1:bp2,
+names_to = "measurement",
+values_to = "value"
+)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+newtidieddata
+```
+
+```{r, eval=TRUE,echo=TRUE}
+newtidieddata %>%
+pivot_wider(names_from="measurement",
+values_from="value")
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+df <- tribble(
+~id, ~measurement, ~value,
+"A", "bp1", 100,
+"B", "bp1", 140,
+"B", "bp2", 115,
+"A", "bp2", 120,
+"A", "bp3", 105
+)
+df
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+df %>%
+pivot_wider(
+names_from = measurement,
+values_from = value
+)
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+newbillboard <- billboard %>%
+ pivot_longer(
+ cols = wk1:wk76,
+ names_to = "week"
+,
+ values_to = "rank",
+values_drop_na = TRUE,
+ )
+newbillboard <- newbillboard %>%
+  mutate(week = parse_number(week))
+newbillboard
+```
+```{r, eval=TRUE,echo=TRUE}
+ggplot(data = newbillboard, mapping=aes(x = week, y = rank)) +
+  geom_point() +
+  geom_line() 
+  
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(data = newbillboard, mapping=aes(x = week, y = rank, colour=track)) +
+  geom_point() +
+  geom_line(aes(group = track)) 
+  
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+cms_patient_experience %>%
+ pivot_wider(names_from="measure_cd",
+ values_from="prf_rate",
+ id_cols = starts_with("org"))
+```
+
+
