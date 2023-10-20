@@ -1,6 +1,6 @@
 {
     "id": "CE4BDD0F",
-    "path": "~/IDrinkTapWater.github.io/_quarto.yml",
+    "path": "~/GitHub/idrinktapwater.github.io/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
     "hash": "3313904043",
@@ -16,11 +16,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1697794161,
+    "lastKnownWriteTime": 1697796244,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1697794161149,
+    "last_content_update": 1697796244,
     "read_only": false,
     "read_only_alternatives": []
 }
