@@ -1,0 +1,62 @@
+---
+title: "Week 10 Submission"
+author: "Daniel Tan"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+#### Week 9
+## The topic I have finalised pertains to the National Basketball Association (NBA)(of America)
+
+## https://www.kaggle.com/datasets/justinas/nba-players-data
+## https://www.kaggle.com/datasets/yakhyojon/national-basketball-association-nba
+
+#### Week 10
+
+##(1) What is the question that you are going to answer? (Answer: One sentence that ends with a question mark that could act like the title of your data story),
+
+How much does height matter at the highest level of play?
+
+##(2) Why is this an important question? (Answer: 3 sentences, each of which has some evidence, e.g., “According to the United Nations...” to justify why the question you have chosen is important),
+
+First, historical data and analysis have consistently shown that height plays a pivotal role in a player's success in the NBA. Taller players tend to have advantages in areas like rebounding, shot-blocking, and overall defensive performance. This trend is supported by statistics, which reveal that the majority of NBA MVPs and All-Star selections over the years have been above-average in height.
+
+Second, understanding the significance of height in the NBA has broader implications for issues like talent development, scouting, and player recruitment. NBA teams invest substantial resources in selecting and nurturing talent, and recognizing the impact of height can lead to more informed decisions about which players to draft and develop.
+
+Lastly, the question touches on broader themes of fairness and inclusivity in sports. By investigating the role of height, we can also explore questions related to diversity, as shorter players who defy height-based expectations provide a compelling narrative in the league. Analyzing this question is not just about basketball; it's about evaluating societal perceptions and norms that can extend beyond the court.
+
+
+##(3) Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use). 
+
+player_name, player_height, pts, reb, ast, ast_pct
+
+
+#### Week 11
+
+
+(1) List the visualizations that you are going to use in your project (Answer: What are the variables that you are going to plot? How will it answer your larger question?)
+
+First I'll create a new column "Avg NBA player" whose row will just consist of the mean for each column e.g Height, Pts, Assists etc. Then I'll plot the statistics for the players shorter than the average height against this theoretical "average NBA player".
+
+
+(2) How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) 
+
+I plan to have an interact-able on the website similar to what is found on "mygamatoto.com" that app essentially just lets you pull up the row of any player the user wants to select, that can mainly be used for eyeball comparisons between different players the user chooses to inspect.
+
+It'd be fun to have a guessing/trivia game as well, where I can ask questions about certain players, and the user has to guess a value like "The 'average' NBA player scored X points in Y season, how many do you think Z player scored that season?" 
+
+
+(3) What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)
+
+```{r, eval=TRUE,echo=TRUE}
+# Create a data frame (table)
+my_table <- data.frame(
+  Topics = c("Dataset Manipulation", "Variables", "Functions", "Iterations", "Data visualization", "Shiny", "Good Folder naming conventions"),
+  Weeks = c("2 and 4", 3, 5, 6, 7, 8, "Self-taught")
+)
+
+# View the created table
+print(my_table)
+
+```
+
+Include the challenges and errors that you faced and how you overcame them.
