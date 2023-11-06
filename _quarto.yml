@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "NM2207 Final Project"
+  title: "Height in the NBA"
   navbar:
     left:
       - href: index.qmd
