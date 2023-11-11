@@ -1,5 +1,5 @@
 ---
-title: "Week 11 Submission"
+title: "Week 12 Submission"
 author: "Daniel Tan"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -51,8 +51,8 @@ It'd be fun to have a guessing/trivia game as well, where I can ask questions ab
 ```{r, eval=TRUE,echo=TRUE}
 # Create a data frame (table)
 my_table <- data.frame(
-  Weeks = c("2 and 4", 3, 5, 6, 7, 8, "Self-taught", "Self-taught"),
-  Topics = c("Dataset Manipulation", "Variables", "Functions", "Iterations", "Data visualization", "Shiny", "Good Folder naming conventions", "write.csv (how to save a csv that I've manipulated)",)
+  Weeks = c("2 and 4", 3, 5, 6, 7, 8, "Self-taught", "Self-taught", "Self-taught"),
+  Topics = c("Dataset Manipulation", "Variables", "Functions", "Iterations", "Data visualization", "Shiny", "Good Folder naming conventions", "write.csv (how to save a csv that I've manipulated)", "purrr walk2")
 )
 
 # View the created table
