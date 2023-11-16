@@ -39,6 +39,8 @@ First I'll create a new column "Avg NBA player" whose row will just consist of t
 
 (6/11/2023) I plan on adding colour grading into my charts so it's easy to see at a glance what stats are considered good/bad for the layman without intimate knowledge of the sport.
 
+
+
 (2) How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) 
 
 I plan to have an interact-able on the website similar to what is found on "mygamatoto.com" that app essentially just lets you pull up the row of any player the user wants to select, that can mainly be used for eyeball comparisons between different players the user chooses to inspect.
@@ -51,8 +53,8 @@ It'd be fun to have a guessing/trivia game as well, where I can ask questions ab
 ```{r, eval=TRUE,echo=TRUE}
 # Create a data frame (table)
 my_table <- data.frame(
-  Weeks = c("2 and 4", 3, 5, 6, 7, 8, "Self-taught", "Self-taught", "Self-taught"),
-  Topics = c("Dataset Manipulation", "Variables", "Functions", "Iterations", "Data visualization", "Shiny", "Good Folder naming conventions", "write.csv (how to save a csv that I've manipulated)", "purrr walk2")
+  Weeks = c("2 and 4", 3, 5, 6, 7, 8, "Self-taught", "Self-taught", "Self-taught", "Self-taught"),
+  Topics = c("Dataset Manipulation", "Variables", "Functions", "Iterations", "Data visualization", "Shiny", "Good Folder naming conventions", "write.csv (how to save a csv that I've manipulated)", "purrr walk2", "filter(net_rating == max(net_rating))")
 )
 
 # View the created table
@@ -61,3 +63,4 @@ print(my_table)
 ```
 
 Include the challenges and errors that you faced and how you overcame them.
+
