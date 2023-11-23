@@ -1,0 +1,512 @@
+---
+title: "Code-Along and Challenge 8"
+author: "Daniel Tan"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, out.height= "100%",out.width= "100%",echo=FALSE,eval=TRUE,fig.cap="App1"}
+knitr::include_graphics("Screenshot (4).png") 
+```
+
+```{r, eval=TRUE,echo=TRUE}
+library(tidyverse)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+data <- read_csv("all_seasons.csv")
+data
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+curated <- data %>%
+  select(player_name, player_height, gp, pts, reb, ast, net_rating, season)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+numeric_columns <- curated %>% select_if(is.numeric)
+
+Average <- numeric_columns %>%
+  summarise_all(mean)
+
+result <- bind_rows(curated, Average)
+
+print(result)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+result <- result %>%
+  arrange(desc(player_name))
+
+result
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Average
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Assuming result is your data frame
+
+# Set player_name to "Average" in the first row
+Average[nrow(Average), "player_name"] <- "Average"
+Average[1, "season"] <- "N.A"
+
+# Print the updated data frame
+print(Average)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Assuming result is your data frame
+
+# Reorder the columns
+Average <- Average %>%
+  select(player_name, everything())
+
+# Print the updated data frame
+print(Average)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+numeric_columns <- curated %>% select_if(is.numeric)
+
+Average <- numeric_columns %>%
+  summarise_all(mean)
+
+result <- bind_rows(curated, Average)
+
+print(result)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+result <- result %>%
+  arrange(player_name)
+
+result
+```
+
+```{r, eval=TRUE,echo=TRUE}
+curated
+```
+
+```{r, eval=TRUE,echo=TRUE}
+library(dplyr)
+library(purrr)
+
+# Assuming your data frame is named df
+# Convert season column to factor to ensure correct sorting
+curated$season <- factor(curated$season, levels = unique(curated$season))
+
+# Group by season and write separate CSV files
+curated %>%
+  group_split(season) %>%
+  walk2(., unique(curated$season), ~write.csv(.x, file = paste0("season_", .y, ".csv"), row.names = FALSE))
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+s9697 <- read_csv("season_1996-97.csv")
+s9798 <- read_csv("season_1997-98.csv")
+s9899 <- read_csv("season_1998-99.csv")
+s9900 <- read_csv("season_1999-00.csv")
+s0001 <- read_csv("season_2000-01.csv")
+s0102 <- read_csv("season_2001-02.csv")
+s0203 <- read_csv("season_2002-03.csv")
+s0304 <- read_csv("season_2003-04.csv")
+s0405 <- read_csv("season_2004-05.csv")
+s0506 <- read_csv("season_2005-06.csv")
+s0607 <- read_csv("season_2006-07.csv")
+s0708 <- read_csv("season_2007-08.csv")
+s0809 <- read_csv("season_2008-09.csv")
+s0910 <- read_csv("season_2009-10.csv")
+s1011 <- read_csv("season_2010-11.csv")
+s1112 <- read_csv("season_2011-12.csv")
+s1213 <- read_csv("season_2012-13.csv")
+s1314 <- read_csv("season_2013-14.csv")
+s1415 <- read_csv("season_2014-15.csv")
+s1516 <- read_csv("season_2015-16.csv")
+s1617 <- read_csv("season_2016-17.csv")
+s1718 <- read_csv("season_2017-18.csv")
+s1819 <- read_csv("season_2018-19.csv")
+s1920 <- read_csv("season_2019-20.csv")
+s2021 <- read_csv("season_2020-21.csv")
+s2122 <- read_csv("season_2021-22.csv")
+s2223 <- read_csv("season_2022-23.csv")
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(curated) +
+  aes(x=player_height, y=pts)+
+  geom_point()
+  
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(curated) +
+  aes(x = gp) +
+  geom_histogram(binwidth = 1, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "Games played by each player",
+       x = "Games played",
+       y = "Frequency")
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(curated) +
+  aes(x = player_height) +
+  geom_histogram(binwidth = 1, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "Games played",
+       x = "Player Height",
+       y = "Frequency")
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+curated <- curated %>%
+  arrange(desc(gp))
+
+curated
+```
+
+```{r, eval=TRUE,echo=TRUE}
+curated <- curated %>%
+  arrange(player_height)
+
+curated
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+# Assuming your data is named 'curated'
+average_height <- curated %>%
+  group_by(player_name) %>%
+  summarise(average_height = mean(player_height, na.rm = TRUE))
+
+# Print the result
+print(average_height)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+# Assuming your data is named 'curated'
+overall_average_height <- mean(curated$player_height, na.rm = TRUE)
+
+# Print the result
+print(overall_average_height)
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+curated <- curated %>%
+  arrange(desc(pts))
+
+curated
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+Bestof <- curated %>%
+  group_by(player_name) %>%
+  filter(gp == max(gp, na.rm = TRUE)) %>%
+  filter(net_rating == max(net_rating, na.rm = TRUE)) %>%
+  ungroup()
+
+# Print the resulting dataset
+print(Bestof)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Bestof <- Bestof%>%
+  arrange(player_name)
+
+Bestof
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(Bestof) +
+  aes(x=player_height, y=pts)+
+  geom_point()
+```
+
+```{r, eval=TRUE,echo=TRUE}
+overall_average_height <- mean(Bestof$player_height, na.rm = TRUE)
+
+# Print the result
+print(overall_average_height)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Bestof <- Bestof%>%
+  arrange(player_height)
+
+Bestof
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+average_row <- Bestof %>%
+  summarise(across(where(is.numeric), median, na.rm = TRUE)) %>%
+  mutate(player_name = "Average Player", season = NA_character_)
+
+# Add the new row to the original dataset
+Bestof_with_average <- bind_rows(Bestof, average_row)
+
+# Print the resulting dataset
+print(Bestof_with_average)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Bestof_with_average <- Bestof_with_average %>%
+  arrange(player_name)
+
+Bestof_with_average
+```
+
+```{r, eval=TRUE,echo=TRUE}
+average_player_row <- Bestof_with_average %>%
+  filter(player_name == "Average Player")
+
+# Print the resulting row
+print(average_player_row)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Full <- Bestof_with_average%>%
+  arrange(desc(net_rating))
+
+Full
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Full <- Full %>%
+  filter(gp >= 10)
+
+Full
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+samenetrating <- Full %>%
+  filter(!duplicated(select(Full, player_name, net_rating)) | !duplicated(select(Full, player_name, net_rating), fromLast = TRUE))
+
+samenetrating
+```
+
+```{r, eval=TRUE,echo=TRUE}
+same_entries <- Full %>%
+  group_by(player_name, net_rating) %>%
+  filter(n() > 1)
+
+same_entries
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Full2 <- Full %>%
+  group_by(player_name) %>%
+  filter(gp == max(gp, na.rm = TRUE)) %>%
+  filter(net_rating == max(net_rating, na.rm = TRUE)) %>%
+  filter(pts == max(pts, na.rm = TRUE)) %>%
+  ungroup()
+
+# Print the resulting dataset
+print(Full2)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+Full2 <- Full2%>%
+  arrange(player_name)
+
+Full2
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(Full2, aes(x = player_height, y = net_rating, color = cut(net_rating, breaks = c(-Inf, -5, 5, Inf)))) +
+  geom_point() +
+  labs(x = "Player Height", y = "Net Rating", color = "Net Rating Range") +
+  scale_color_manual(values = c("red", "yellow", "green")) +
+  theme_minimal()
+```
+
+```{r, eval=TRUE,echo=TRUE}
+lower_quartile <- quantile(Full2$net_rating, 0.25)
+upper_quartile <- quantile(Full2$net_rating, 0.75)
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+color <- ifelse(Full2$net_rating < lower_quartile, "red",
+                ifelse(Full2$net_rating > upper_quartile, "green", "yellow"))
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(Full2, aes(x = player_height, y = net_rating, color = color)) +
+  geom_point() +
+  labs(x = "Player Height", y = "Net Rating", color = "Net Rating Quartiles") +
+  scale_color_manual(values = c("red", "yellow", "green")) +
+  theme_minimal()
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(Full2, aes(x = player_height, y = net_rating, color = color)) +
+  geom_point() +
+  labs(x = "Player Height", y = "Net Rating", color = "Net Rating Quartiles") +
+  scale_color_manual(values = c("red", "yellow", "green"), guide = "none") +
+  theme_minimal()
+```
+
+```{r, eval=TRUE,echo=TRUE}
+NRPH <- ggplot(Full2, aes(x = player_height, y = net_rating, color = cut(net_rating, breaks = c(-Inf, -6.6, 2.8, Inf)))) +
+  geom_point() +
+  labs(x = "Player Height", y = "Net Rating", color = "Net Rating Range") +
+  scale_color_manual(values = c("red", "yellow", "green")) +
+  theme_minimal()
+```
+
+```{r, eval=TRUE,echo=TRUE}
+NRPH
+```
+
+```{r, eval=TRUE,echo=TRUE}
+average_player_row
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+print(average_player_row)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+```{r, eval=TRUE,echo=TRUE}
+m <- lm(Y ~ X)
+```
+
+```{r, eval=TRUE,echo=TRUE}
+summary(m)
+```
+

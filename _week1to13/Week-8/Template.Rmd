@@ -16,5 +16,10 @@ knitr::include_graphics("Screenshot (4).png")
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
+library(shiny)
+```
 
+```{r, eval=TRUE,echo=TRUE}
+data <- read_csv("all_seasons.csv")
+data
 ```
