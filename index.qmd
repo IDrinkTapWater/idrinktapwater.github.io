@@ -4,14 +4,26 @@ title: "How much does height really matter in the NBA?"
 
 When I think of NBA players, the first image that comes to mind is a hulking giant of a man, the second image that comes to mind is this (insert picture of kevin hart next to shaq). In a sport where the goal is to get the ball into a basket 10 feet off the ground and to prevent the other team from doing the same, naturally, one would come to the conclusion that height is the deciding factor. However, this has proven not be an ironclad rule, time and time again by exceptional individuals such as the (insertheight) Muggsy Bogues or the (insertheight) (insertname). But then again, just looking at the results of these individuals alone would be invoking survivorship bias. Which begs the question, how do the comparatively shorter players stack up against the "average" NBA player.
 
-To learn more about Daniel, navigate to the "About" section.
 
-Here's Daniel's favourite equation.
+Here's what the "average" NBA player's stats look like. 
 
 ```{r}
-1 + 1
+print(average_player_row)
 ```
 
+I say average, but these numbers are actually the median of their respective columns.
+
+```{r}
+NRPH
+```
+
+
+```{r}
+print(same_entries)
+```
+
+
+To learn more about Daniel, navigate to the "About" section.
 GitHub Page link:
 
 https://github.com/IDrinkTapWater/idrinktapwater.github.io
