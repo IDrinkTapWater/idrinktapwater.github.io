@@ -1,0 +1,12 @@
+name: MyShinyApp
+title: MyShinyApp
+username: grhodq-daniel-tan
+account: grhodq-daniel-tan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10616016
+bundleId: 7963973
+url: https://grhodq-daniel-tan.shinyapps.io/MyShinyApp/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Height in the NBA"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - statviewer.qmd
+      - about.qmd
+      
+
+format:
+  html:
+    theme: superhero
+    css: styles.css
+    toc: true
+
+editor: visual
+
