@@ -94,7 +94,7 @@ The green dots represent players that perform better than 75% of other NBA playe
 The red dots represent players that perform worse than 75% of other NBA players.
 The yellow dots represent players that fall in-between.
 
-At a glance, it's easy to see that there isn't any particular relation between height and performance, with good and bad players all across the board. In fact, a good chunk of the best performing players happen to be under the median height of 200.66cm
+At a glance, it's easy to see that there isn't any particular relation between height and performance, with good and bad players all across the board. In fact, a good chunk of the best performing players happen to be under the median height of 200.66cm.
 
 The two yellow dots on the far left, below 170cm most likely represent Muggsy Bogues(160.02cm,0.4) and Earl Boykins(165.1cm,1.9). Now, because net_rating is an indicator of the point differential while a specific player is on the court, you could argue that perhaps the team already had a huge lead before rotating players like Bogues and Boykins onto the court.
 

@@ -406,19 +406,34 @@ library(rsconnect)
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
+# Assuming Full2 is your dataset
+# Fit a linear model
+model <- lm(net_rating ~ player_height, data = Full2)
+
+# Summary of the linear model
+summary(model)
 
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
+checkingrating <- Full2%>%
+  arrange(net_rating)
 
+checkingrating
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
+checkingheight <- Full2%>%
+  arrange(desc(player_height))
 
+checkingheight
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
+checkingszn <- data%>%
+  arrange(season)
 
+checkingszn
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
