@@ -8,7 +8,9 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - statviewer.qmd
       - about.qmd
+      
 
 format:
   html:

@@ -1,5 +1,31 @@
 library(shiny)
 library(DT)
+library(tidyverse)
+
+data <- read_csv("all_seasons.csv")
+curated <- data %>%
+  select(player_name, player_height, gp, pts, reb, ast, net_rating, season)
+Bestof <- curated %>%
+  group_by(player_name) %>%
+  filter(gp == max(gp, na.rm = TRUE)) %>%
+  filter(net_rating == max(net_rating, na.rm = TRUE)) %>%
+  ungroup()
+average_row <- Bestof %>%
+  summarise(across(where(is.numeric), median, na.rm = TRUE)) %>%
+  mutate(player_name = "Average Player", season = NA_character_)
+
+# Add the new row to the original dataset
+Bestof_with_average <- bind_rows(Bestof, average_row)
+Full <- Bestof_with_average%>%
+  arrange(desc(net_rating))
+Full <- Full %>%
+  filter(gp >= 10)
+Full2 <- Full %>%
+  group_by(player_name) %>%
+  filter(gp == max(gp, na.rm = TRUE)) %>%
+  filter(net_rating == max(net_rating, na.rm = TRUE)) %>%
+  filter(pts == max(pts, na.rm = TRUE)) %>%
+  ungroup()
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
@@ -32,6 +58,7 @@ ui <- fluidPage(
 
 # Define server
 server <- function(input, output, session) {
+
   # Reactive values to store selected players
   selected_players <- reactiveVal(NULL)
   

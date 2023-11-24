@@ -297,13 +297,6 @@ Full
 
 
 ```{r, eval=TRUE,echo=TRUE}
-samenetrating <- Full %>%
-  filter(!duplicated(select(Full, player_name, net_rating)) | !duplicated(select(Full, player_name, net_rating), fromLast = TRUE))
-
-samenetrating
-```
-
-```{r, eval=TRUE,echo=TRUE}
 same_entries <- Full %>%
   group_by(player_name, net_rating) %>%
   filter(n() > 1)
@@ -387,28 +380,29 @@ print(average_player_row)
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
-
+install.packages("DT")
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
-
+library(shiny)
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
-
+runExample("01_hello")
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
-
+install.packages('rsconnect')
 ```
 
 ```{r, eval=TRUE,echo=TRUE}
-
+rsconnect::setAccountInfo(name='grhodq-daniel-tan', token='2943A406DE019F8D7E265899236E7F7F', secret='Rs41BPQB9bsXAFKDK5TWar/HSVvl5IFJ31QvAp33')
 ```
 
 
 ```{r, eval=TRUE,echo=TRUE}
-
+library(rsconnect)
+    rsconnect::deployApp('App-1')
 ```
 
 ```{r, eval=TRUE,echo=TRUE}

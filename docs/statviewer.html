@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Height in the NBA - How much does height really matter in the NBA?</title>
+<title>Height in the NBA - statviewer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,11 +82,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./statviewer.html" rel="" target="">
+    <a class="nav-link active" href="./statviewer.html" rel="" target="" aria-current="page">
  <span class="menu-text">statviewer</span></a>
   </li>  
   <li class="nav-item">
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How much does height really matter in the NBA?</h1>
+<h1 class="title">statviewer</h1>
 </div>
 
 
@@ -127,61 +127,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>When I think of NBA players, the first image that comes to mind is a hulking giant of a man, the second image that comes to mind is this (insert picture of kevin hart next to shaq). In a sport where the goal is to get the ball into a basket 10 feet off the ground and to prevent the other team from doing the same, naturally, one would come to the conclusion that height is the deciding factor. However, this has proven not be an ironclad rule, time and time again by exceptional individuals such as the (insertheight) Muggsy Bogues or the (insertheight) (insertname). But then again, just looking at the results of these individuals alone would be invoking survivorship bias. Which begs the question, how do the comparatively shorter players stack up against the “average” NBA player.</p>
-<p>Here’s what the “average” NBA player’s stats look like.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 8
-  player_name    player_height    gp   pts   reb   ast net_rating season
-  &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt; 
-1 Average Player          201.    64   5.6   2.5     1       -1.8 &lt;NA&gt;  </code></pre>
-</div>
-</div>
-<p>I say average, but these numbers are actually the median of their respective columns.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 8
-# Groups:   player_name, net_rating [5]
-   player_name    player_height    gp   pts   reb   ast net_rating season 
-   &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  
- 1 John Stockton           185.    82  14.4   2.8  10.5       11.4 1996-97
- 2 John Stockton           185.    82  11.5   2.8   8.7       11.4 2000-01
- 3 Lindsey Hunter          188.    82  14.2   2.8   1.9        5.1 1996-97
- 4 Lindsey Hunter          188.    82  10.1   2.1   2.7        5.1 2000-01
- 5 Mark Blount             213.    82  10.3   7.2   0.9        0.4 2003-04
- 6 Mark Blount             213.    82   9.4   4.8   1.6        0.4 2004-05
- 7 Bobby Simmons           198.    75  16.4   5.9   2.7        0.4 2004-05
- 8 Bobby Simmons           198.    75  13.4   4.4   2.3        0.4 2005-06
- 9 Johnny Newman           201.    82   8.7   2.3   1.4        0.2 1996-97
-10 Johnny Newman           201.    82  10     1.9   0.8        0.2 1999-00</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 8
-# Groups:   player_name, net_rating [5]
-   player_name    player_height    gp   pts   reb   ast net_rating season 
-   &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  
- 1 John Stockton           185.    82  14.4   2.8  10.5       11.4 1996-97
- 2 John Stockton           185.    82  11.5   2.8   8.7       11.4 2000-01
- 3 Lindsey Hunter          188.    82  14.2   2.8   1.9        5.1 1996-97
- 4 Lindsey Hunter          188.    82  10.1   2.1   2.7        5.1 2000-01
- 5 Mark Blount             213.    82  10.3   7.2   0.9        0.4 2003-04
- 6 Mark Blount             213.    82   9.4   4.8   1.6        0.4 2004-05
- 7 Bobby Simmons           198.    75  16.4   5.9   2.7        0.4 2004-05
- 8 Bobby Simmons           198.    75  13.4   4.4   2.3        0.4 2005-06
- 9 Johnny Newman           201.    82   8.7   2.3   1.4        0.2 1996-97
-10 Johnny Newman           201.    82  10     1.9   0.8        0.2 1999-00</code></pre>
-</div>
-</div>
-<p>To learn more about Daniel, navigate to the “About” section. GitHub Page link:</p>
-<p>https://github.com/IDrinkTapWater/idrinktapwater.github.io</p>
-
+<p><iframe height="400" width="100%" frameborder="no" src="https://grhodq-daniel-tan.shinyapps.io/MyShinyApp/" <="" p="">
+</iframe>
+</p>
 
 
 </main> <!-- /main -->
