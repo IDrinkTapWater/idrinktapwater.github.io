@@ -9,7 +9,9 @@ When I think of NBA players, the first image that comes to mind is a hulking gia
 
 In a sport where the goal is to get the ball into a basket 10 feet off the ground and to prevent the other team from doing the same, naturally, one would come to the conclusion that height is the deciding factor. However, this has proven not be an ironclad rule, time and time again by exceptional individuals such as the 1.6m Muggsy Bogues or the 1.75m Isaiah Thomas(the one who played for the Celtics, not the Pistons point guard he was named after). But then again, just looking at the results of these individuals alone would be invoking survivorship bias. Which begs the question, how do the comparatively shorter players stack up against the "average" NBA player.
 
-Here's what the "average" NBA player's stats look like. 
+## Here's what the "average" NBA player's stats look like. 
+
+Legend: gp=games played through the season(max=82), pts=average number of points scored, reb=average number of rebounds grabbed, ast=average number of assists distributed, net_rating=team's point differential per 100 possesions while the player is on the court, season=NBA season the data is based on.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -33,7 +35,9 @@ average_player_row <- Bestof_with_average %>%
 print(average_player_row)
 ```
 
-I say average, but these numbers are actually the median of their respective columns.
+### I say average, but these numbers are actually the median of their respective columns.
+
+For the purposes of this exploration, we'll be judging how well a player performs by their "net_rating" score. I initially wanted to judge a player's performance by the average number of points they scored per game, as one naturally would, in a sport where the goal is to score more points than the opponent. However, Basketball is a team game, with some of the most successful players specialising in defense or grabbing rebounds. Thus I determined that judging based on the "net_rating" score, an indicator of how well the team does while a certain player is on the court, would be a fairer assessment.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 Full <- Bestof_with_average%>%
@@ -46,14 +50,79 @@ Full2 <- Full %>%
   filter(net_rating == max(net_rating, na.rm = TRUE)) %>%
   filter(pts == max(pts, na.rm = TRUE)) %>%
   ungroup()
+# Assuming Full2 is your dataset
+# Fit a linear model
+model <- lm(net_rating ~ player_height, data = Full2)
+
+# Summary of the linear model
+summary(model)
+```
+## Here I did a linear regression test, to see if height truly has a significant effect on how well an NBA player performs.
+The numbers aren't exactly easily digestable so here's the explanantion for the results.
+
+The coefficient for player_height is -0.0002235. This represents the estimated change in net_rating for a one-unit increase in player_height. In this case, the small coefficient suggests a very slight decrease in net_rating for each additional unit of player_height, but the effect is extremely small.
+
+### So interestingly, the average performance of a player actually decreases, however slight, the taller the player is!
+
+Hypothesis Test:
+
+The p-value associated with player_height is 0.991, which is much greater than the typical significance level of 0.05. This suggests that there is no statistically significant evidence to reject the null hypothesis. 
+
+### In other words, there is no strong evidence that player_height has a significant effect on net_rating.
+
+Conclusion:
+The results suggest that there is no statistically significant evidence to conclude that player_height has a significant effect on net_rating in the given dataset. The effect, if any, appears to be extremely small based on the coefficient magnitude.
+
+Possible explanations:
+Taller players may be more prone to certain injuries, such as knee and back issues, due to the additional stress on their joints.
+Taller players may face challenges in terms of speed and agility compared to their shorter counterparts. This could result in difficulties defending against faster players.
+
+
+## Scatter Plot
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 NRPH <- ggplot(Full2, aes(x = player_height, y = net_rating, color = cut(net_rating, breaks = c(-Inf, -6.6, 2.8, Inf)))) +
   geom_point() +
-  labs(x = "Player Height", y = "Net Rating", color = "Net Rating Range") +
+  labs(x = "Player Height(cm)", y = "Net Rating", color = "Net Rating Range") +
   scale_color_manual(values = c("red", "yellow", "green")) +
   theme_minimal()
 NRPH
 ```
 
+Above is a scatter plot depicting the various players individual heights and their net rating. The lower and higher interquartile ranges for net rating are -6.6 and 2.8 respectively. 
+The green dots represent players that perform better than 75% of other NBA players. 
+The red dots represent players that perform worse than 75% of other NBA players.
+The yellow dots represent players that fall in-between.
+
+At a glance, it's easy to see that there isn't any particular relation between height and performance, with good and bad players all across the board. In fact, a good chunk of the best performing players happen to be under the median height of 200.66cm
+
+The two yellow dots on the far left, below 170cm most likely represent Muggsy Bogues(160.02cm,0.4) and Earl Boykins(165.1cm,1.9). Now, because net_rating is an indicator of the point differential while a specific player is on the court, you could argue that perhaps the team already had a huge lead before rotating players like Bogues and Boykins onto the court.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+selected_players <- c("Average Player", "Muggsy Bogues", "Earl Boykins")
+
+mba <- Full2 %>%
+  filter(player_name %in% selected_players)
+
+print(mba)
+
+```
+But from this simple table comparison, we can see that Earl and Muggsy were both stellar team players, with more than 3-4 times the regular number of assists distributed by the 'average' NBA player, with Earl even scoring more than double the points on average per game.
+
+But still it's clear that these are the only two players below 170cm in the entire league, one explanation for this is that the recruiters naturally overlook or write off anyone below a certain height. So shorter players have to be truly exceptional to be even offered a chance to play in the league.
+
+## Conclusion
+
+Contrary to conventional wisdom, which often associates success in basketball with towering stature, the findings suggest a nuanced relationship between height and performance.
+
+The linear regression analysis, examining the effect of player height on net rating, revealed a minimal and statistically insignificant impact. 
+
+The scatter plot visually reinforced the diverse performance levels across players of varying heights. Notably, exceptional players like Muggsy Bogues and Earl Boykins, both significantly below the average NBA height, demonstrated outstanding contributions to their teams, challenging the stereotype that height is a prerequisite for success.
+
+Possible explanations for these results include considerations of injury susceptibility among taller players or challenges in speed and agility. Additionally, the analysis hinted at potential biases in recruitment practices, where shorter players, despite their exceptional skills, may face greater scrutiny or be overlooked in favor of taller prospects.
+
+In conclusion, while height may play a role in certain aspects of the game, the evidence presented suggests that it does not serve as a decisive factor in determining a player's overall impact, particularly when assessed through the lens of net rating. Exceptional skills, teamwork, and individual contributions, regardless of height, continue to shape success in the dynamic and multifaceted world of the NBA.
+
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 same_entries <- Full %>%
@@ -61,14 +130,7 @@ same_entries <- Full %>%
   filter(n() > 1)
 print(same_entries)
 ```
-
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-same_entries <- Full %>%
-  group_by(player_name, net_rating) %>%
-  filter(n() > 1)
-print(same_entries)
-```
+This was just a fun observation I found while trying to tidy up my dataset. My original dataset included the statistics of each season an individual player played in. So I tried to filter it down to each player's best performing season. Quickly scanning through the data, I noticed Bobby Simmons still had two rows in the dataset. So I tried looking for all the other players who had the same net_rating across multiple seasons. So these are essentially, the most consistent players in the league, who had the same net rating across two seasons.
 
 To learn more about Daniel, navigate to the "About" section.
 GitHub Page link:
