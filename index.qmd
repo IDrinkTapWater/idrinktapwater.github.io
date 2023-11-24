@@ -57,7 +57,17 @@ same_entries <- Full %>%
   filter(n() > 1)
 print(same_entries)
 ```
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(shiny)
+runApp("App-1")
+```
 
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+same_entries <- Full %>%
+  group_by(player_name, net_rating) %>%
+  filter(n() > 1)
+print(same_entries)
+```
 
 To learn more about Daniel, navigate to the "About" section.
 GitHub Page link:
