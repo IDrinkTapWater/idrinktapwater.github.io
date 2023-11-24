@@ -4,6 +4,6 @@ format: html
 editor: visual
 ---
 
-`<iframe height="400" width="100%" frameborder="no" src="https://grhodq-daniel-tan.shinyapps.io/MyShinyApp/"`{=html}
+`<iframe height="400" width="150%" frameborder="no" src="https://grhodq-daniel-tan.shinyapps.io/MyShinyApp/"`{=html}
 
 </iframe>
